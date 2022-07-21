@@ -22,7 +22,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        docker tag imagedockerpaas.azurecr.io/frontend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
                         '''
             }
         }
