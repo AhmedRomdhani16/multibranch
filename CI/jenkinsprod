@@ -12,10 +12,10 @@ pipeline {
     stage('PULL Image Frontend') {
             steps{
             
-                echo "#################### Push Image ms-frontend to azurecr.io ${latestTag} #################"
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend
+                        docker pull imagedockerpaas.azurecr.io/frontend;$latestTag
                 '''
             }
         }
