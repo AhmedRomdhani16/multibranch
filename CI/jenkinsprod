@@ -61,13 +61,24 @@ pipeline {
             } 
         } 
         
+        
+        stage('TAG Image Backend') {
+            steps{
+
+                echo "#################### Tag Image Backend #################"
+                sh '''  
+                        docker tag imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 reposittoryprod.azurecr.io/backendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        '''
+            }
+        }
+        
         stage('Push Image Backend') {
             steps{
 
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push imagedockerpaas.azurecr.io/backendPROD1.0.1
+                        docker push reposittoryprod.azurecr.io/backendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
                 '''
                
                 
