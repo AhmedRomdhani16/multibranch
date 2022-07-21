@@ -23,7 +23,7 @@ pipeline {
             }
         }
         
-        stage('TAG Image Backend') {
+        stage('TAG Image Frontend') {
             steps{
 
                 echo "#################### Tag Image Backend #################"
