@@ -1,1 +1,23 @@
 
+pipeline {    
+    options { skipDefaultCheckout() }
+    agent {label 'jenkinsmaster'} 
+    stages { 
+    stage('PULL Image Frontend') {
+            steps{
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                sh ''' 
+
+                        docker pull imagedockerpaas.azurecr.io/frontend
+                '''
+            }
+        }
+    
+    
+    }
+    
+    
+    
+    
+    
+    }
