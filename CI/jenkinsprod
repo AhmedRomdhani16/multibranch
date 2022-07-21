@@ -17,12 +17,22 @@ pipeline {
             }
         }
         
+        stage('TAG Image Backend') {
+            steps{
+
+                echo "#################### Tag Image Backend #################"
+                sh '''  
+                        docker tag backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        '''
+            }
+        }
+        
         stage('PUSH Image Frontend') {
             steps{
                 echo "#################### Push Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker push imagedockerpaas.azurecr.io/frontendPROD:1.0.1
+                        docker push imagedockerpaas.azurecr.io/frontendPROD:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
                 '''
             }
         }
