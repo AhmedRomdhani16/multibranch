@@ -2,10 +2,15 @@
 pipeline {    
     options { skipDefaultCheckout() }
     agent {label 'jenkinsmaster'} 
+    
+    environment {
+        tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()  
+        
+        }
     stages { 
     stage('PULL Image Frontend') {
             steps{
-                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                echo "#################### Push Image ms-frontend to azurecr.io  ${tag} #################"
                 sh ''' 
 
                         docker pull imagedockerpaas.azurecr.io/frontend:b8da29a6c84a3ea8a7835b8adf181cf0de4c82e7
