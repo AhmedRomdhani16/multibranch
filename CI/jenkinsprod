@@ -22,7 +22,7 @@ pipeline {
                 echo "#################### Push Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker push imagedockerpaas.azurecr.io/frontendPROD
+                        docker push imagedockerpaas.azurecr.io/frontendPROD:1.0.1
                 '''
             }
         }
@@ -47,7 +47,7 @@ pipeline {
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push imagedockerpaas.azurecr.io/backendPROD
+                        docker push imagedockerpaas.azurecr.io/backendPROD1.0.1
                 '''
                
                 
