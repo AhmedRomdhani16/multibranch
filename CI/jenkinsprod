@@ -37,8 +37,10 @@ pipeline {
             steps{
                 echo "#################### Push Image ms-frontend to azurecr.io #################"
                 sh ''' 
+                
+                
 
-                        docker push imagedockerpaas.azurecr.io/frontend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        docker push reposittoryprod.azurecr.io/frontend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
                         
                         
                 '''
