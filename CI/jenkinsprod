@@ -3,7 +3,7 @@ pipeline {
     options { skipDefaultCheckout() }
     agent {label 'jenkinsmaster'} 
     
-    environment {
+     environment {
         tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()  
         
         }
