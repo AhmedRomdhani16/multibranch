@@ -1,0 +1,30 @@
+
+pipeline {    
+    options { skipDefaultCheckout() }
+    agent {label 'jenkinsmaster'} 
+    
+     environment {
+        latestTag = sh(returnStdout:  true, script: "git tag --sort=-creatordate | head -n 1").trim() 
+        
+        }
+     
+    stages { 
+    stage('PULL Image Frontend') {
+            steps{
+            
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                sh ''' 
+
+                        docker pull imagedockerpaas.azurecr.io/frontend;$latestTag
+                '''
+            }
+        }
+    
+    
+    }
+    
+    
+    
+    
+    
+    }
