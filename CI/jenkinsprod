@@ -3,10 +3,7 @@ pipeline {
     options { skipDefaultCheckout() }
     agent {label 'jenkinsmaster'} 
     
-     environment {
-        tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()  
-        
-        }
+     
     stages { 
     stage('PULL Image Frontend') {
             steps{
